@@ -8,9 +8,10 @@ describe('Google Translate', function () {
         try {
             await driver.get('https://translate.google.com/#view=home&op=translate&sl=sv&tl=en');
             await driver.wait(until.titleIs('Google Translate'), 2000);
+
             await driver.findElement(By.id('source')).sendKeys('varsågod', Key.RETURN);
-            await driver.wait(until.elementLocated(By.css('.translation span')), 2000)
-            let prom = await driver.findElement(By.css('.translation span')).getText();
+            let prom = await driver.wait(until.elementLocated(By.css('.translation span')), 2000).getText()
+
             expect(prom)
                 .to.be.a('string')
                 .and.equal('You are welcome')
