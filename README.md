@@ -2,7 +2,7 @@
 A sample javascript project for showcasing Selenium to automate browser testing
 
 ## Pre-requisites
-* Firefox
+* Firefox browser
 * npm - Node Package Manager
 
 ## Running the tests
