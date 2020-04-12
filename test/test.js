@@ -1,20 +1,23 @@
-const chai = require('chai')
 const {Builder, By, Key, until} = require('selenium-webdriver');
-require('geckodriver')
+require('geckodriver');
+const expect = require('chai').expect;
 
-describe('request', function () {
-    it('should start a browser', function () {
-        (async function example() {
-            let driver = await new Builder().forBrowser('firefox').build();
-            try {
-                await driver.get('http://www.google.com/en');
-                await driver.findElement(By.name('q')).sendKeys('webdriver', Key.RETURN);
-                await driver.wait(until.titleIs('webdriver - Google Search'), 1000);
-            } catch (error) {
-                console.error(`Error: ${error}`)
-            } finally {
-                await driver.quit();
-            }
-        })();
+describe('Google Translate', function () {
+    it('should translate Swedish to English', async function () {
+        let driver = await new Builder().forBrowser('firefox').build();
+        try {
+            await driver.get('https://translate.google.com/#view=home&op=translate&sl=sv&tl=en');
+            await driver.wait(until.titleIs('Google Translate'), 2000);
+            await driver.findElement(By.id('source')).sendKeys('varsågod', Key.RETURN);
+            await driver.wait(until.elementLocated(By.css('.translation span')), 2000)
+            let prom = await driver.findElement(By.css('.translation span')).getText();
+            expect(prom)
+                .to.be.a('string')
+                .and.equal('You are welcome')
+        } catch (error) {
+            expect.fail(`Error while executing test: ${error}`);
+        } finally {
+            await driver.quit();
+        }
     });
 });
