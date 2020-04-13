@@ -15,8 +15,6 @@ describe('Google Translate', function () {
             let prom = await homepage.getTranslatedText();
 
             expect(prom).equal('You are welcome');
-        } catch (error) {
-            throw(error);
         } finally {
             await driver.quit();
         }
