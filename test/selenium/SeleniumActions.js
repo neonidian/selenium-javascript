@@ -6,24 +6,24 @@ class SeleniumActions {
     }
 
     async loadUrl(url) {
-        await this.driver.get(url).catch(error => { return(error) });
+        await this.driver.get(url).catch(error => { throw(error) });
     }
 
     async enterTextAndPressEnterKey(text) {
-        await this.driver.findElement(By.id('source')).sendKeys(text, Key.RETURN).catch(error =>  { return(error) });
+        await this.driver.findElement(By.id('source')).sendKeys(text, Key.RETURN).catch(error =>  { throw(error) });
     }
 
     async waitUntilElementIsLocated(timeout) {
-        await this.driver.wait(until.elementLocated(By.id('source')), timeout).catch(error =>  { return(error) });
+        await this.driver.wait(until.elementLocated(By.id('source')), timeout).catch(error =>  { throw(error) });
     }
 
     async waitUntilPageTitleIsDisplayed(webPageTitle, timeout) {
-        await this.driver.wait(until.titleIs(webPageTitle), timeout).catch(error =>  { return(error) });
+        await this.driver.wait(until.titleIs(webPageTitle), timeout).catch(error =>  { throw(error) });
     }
 
     async getInnerText() {
         return await this.driver.wait(until.elementLocated(By.css('.translation span')), 2000).getText()
-            .catch(error => { return(error) });
+            .catch(error => { throw(error) });
     }
 }
 
