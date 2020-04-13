@@ -12,9 +12,9 @@ describe('Google Translate', function () {
             await homepage.loadGoogleTranslateSwedishToEnglishPage();
             await homepage.enterTextToTranslateAndPressEnterKey('Varsågod');
 
-            let prom = await homepage.getTranslatedText();
+            let translatedText = await homepage.getTranslatedText();
 
-            expect(prom).equal('You are welcome');
+            expect(translatedText).equal('You are welcome');
         } finally {
             await driver.quit();
         }
