@@ -1,6 +1,6 @@
 const { until, By, Key } = require('selenium-webdriver');
 
-class Seleniumactions {
+class SeleniumActions {
     constructor(driver) {
         this.driver = driver;
     }
@@ -27,4 +27,4 @@ class Seleniumactions {
     }
 }
 
-module.exports = Seleniumactions;
+module.exports = SeleniumActions;

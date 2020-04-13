@@ -1,12 +1,12 @@
 const expect = require('chai').expect;
 
-const Browserfactory = require('./selenium/Browserfactory');
-const Homepage = require('./pages/Homepage');
+const BrowserFactory = require('./selenium/BrowserFactory');
+const HomePage = require('./pages/HomePage');
 
 describe('Google Translate', function () {
     it('should translate Swedish to English', async function () {
-        let driver = await new Browserfactory().startBrowser();
-        let homepage = new Homepage(driver);
+        let driver = await new BrowserFactory().startBrowser();
+        let homepage = new HomePage(driver);
 
         try {
             await homepage.loadGoogleTranslateSwedishToEnglishPage();
@@ -14,9 +14,7 @@ describe('Google Translate', function () {
 
             let prom = await homepage.getTranslatedText();
 
-            expect(prom)
-                .to.be.a('string')
-                .and.equal('You are welcome');
+            expect(prom).equal('You are welcome');
         } catch (error) {
             throw(error);
         } finally {

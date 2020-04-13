@@ -1,8 +1,8 @@
-const Seleniumactions = require('../selenium/Seleniumactions');
+const seleniumActions = require('../selenium/SeleniumActions');
 
-class Homepage {
+class HomePage {
     constructor(driver) {
-        this.seleniumactions = new Seleniumactions(driver);
+        this.seleniumactions = new seleniumActions(driver);
     }
 
     async loadGoogleTranslateSwedishToEnglishPage() {
@@ -21,4 +21,4 @@ class Homepage {
     }
 }
 
-module.exports = Homepage;
+module.exports = HomePage;
