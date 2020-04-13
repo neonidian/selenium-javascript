@@ -13,12 +13,8 @@ class SeleniumActions {
         await this.driver.findElement(locator).sendKeys(text, Key.RETURN).catch(error =>  { throw(error) });
     }
 
-    async waitUntilElementIsLocated(timeout) {
-        await this.driver.wait(until.elementLocated(), timeout).catch(error =>  { throw(error) });
-    }
-
-    async waitUntilPageTitleIsDisplayed(webPageTitle, timeout) {
-        await this.driver.wait(until.titleIs(webPageTitle), timeout).catch(error =>  { throw(error) });
+    async waitUntilPageTitleIsDisplayed(webPageTitle) {
+        await this.driver.wait(until.titleIs(webPageTitle), 2000).catch(error =>  { throw(error) });
     }
 
     async getInnerText(locator) {

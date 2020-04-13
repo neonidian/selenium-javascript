@@ -15,7 +15,7 @@ class HomePage {
         const url = 'https://translate.google.com/#view=home&op=translate&sl=sv&tl=en';
 
         await this.seleniumactions.loadUrl(url);
-        await this.seleniumactions.waitUntilPageTitleIsDisplayed('Google Translate', 2000);
+        await this.seleniumactions.waitUntilPageTitleIsDisplayed('Google Translate');
     }
 
     async enterTextToTranslateAndPressEnterKey(textToTranslate) {
