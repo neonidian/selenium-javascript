@@ -1,4 +1,4 @@
-const Seleniumactions = require('../selenium/Seleniumactions')
+const Seleniumactions = require('../selenium/Seleniumactions');
 
 class Homepage {
     constructor(driver) {

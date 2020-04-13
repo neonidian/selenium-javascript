@@ -1,10 +1,10 @@
-const { Builder } = require('selenium-webdriver');
+const {Builder} = require('selenium-webdriver');
 require('geckodriver');
 
 class Browserfactory {
 
     async startBrowser() {
-       return await new Builder().forBrowser('firefox').build();
+        return await new Builder().forBrowser('firefox').build();
     }
 }
 

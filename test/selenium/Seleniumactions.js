@@ -23,7 +23,7 @@ class Seleniumactions {
 
     async getInnerText() {
         return await this.driver.wait(until.elementLocated(By.css('.translation span')), 2000).getText()
-            .catch(error =>  { return(error) });
+            .catch(error => { return(error) });
     }
 }
 
