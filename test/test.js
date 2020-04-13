@@ -10,13 +10,13 @@ describe('Google Translate', function () {
             await driver.wait(until.titleIs('Google Translate'), 2000);
 
             await driver.findElement(By.id('source')).sendKeys('varsågod', Key.RETURN);
-            let prom = await driver.wait(until.elementLocated(By.css('.translation span')), 2000).getText()
+            let prom = await driver.wait(until.elementLocated(By.css('.translation span')), 2000).getText();
 
             expect(prom)
                 .to.be.a('string')
-                .and.equal('You are welcome')
+                .and.equal('You are welcome');
         } catch (error) {
-            expect.fail(`Error while executing test: ${error}`);
+            throw(error);
         } finally {
             await driver.quit();
         }
