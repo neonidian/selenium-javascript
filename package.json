@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Selenium using Javascript",
   "scripts": {
-    "test": "mocha --timeout 15000"
+    "test": "mocha --timeout 20000"
   },
   "devDependencies": {
     "selenium-webdriver": "^4.0.0-alpha.7",
