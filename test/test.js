@@ -1,16 +1,18 @@
-const {Builder, By, Key, until} = require('selenium-webdriver');
-require('geckodriver');
 const expect = require('chai').expect;
+
+const Browserfactory = require('./selenium/Browserfactory');
+const Homepage  = require('./pages/Homepage')
 
 describe('Google Translate', function () {
     it('should translate Swedish to English', async function () {
-        let driver = await new Builder().forBrowser('firefox').build();
-        try {
-            await driver.get('https://translate.google.com/#view=home&op=translate&sl=sv&tl=en');
-            await driver.wait(until.titleIs('Google Translate'), 2000);
+        let driver = await new Browserfactory().startBrowser();
+        let homepage = new Homepage(driver);
 
-            await driver.findElement(By.id('source')).sendKeys('varsågod', Key.RETURN);
-            let prom = await driver.wait(until.elementLocated(By.css('.translation span')), 2000).getText();
+        try {
+            await homepage.loadGoogleTranslateSwedishToEnglishPageUrl();
+            await homepage.enterTextToTranslateAndPressEnterKey('Varsågod');
+
+            let prom = await homepage.getTranslatedText();
 
             expect(prom)
                 .to.be.a('string')
