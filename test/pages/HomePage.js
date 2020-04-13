@@ -1,6 +1,12 @@
+const { By } = require('selenium-webdriver');
+
 const seleniumActions = require('../selenium/SeleniumActions');
 
 class HomePage {
+
+    locatorSourceTextToTranslate = By.id('source');
+    locatorTranslatedText = By.css('.translation span');
+
     constructor(driver) {
         this.seleniumactions = new seleniumActions(driver);
     }
@@ -13,11 +19,11 @@ class HomePage {
     }
 
     async enterTextToTranslateAndPressEnterKey(textToTranslate) {
-        await this.seleniumactions.enterTextAndPressEnterKey(textToTranslate);
+        await this.seleniumactions.enterTextAndPressEnterKey(this.locatorSourceTextToTranslate, textToTranslate);
     }
 
     async getTranslatedText() {
-        return await this.seleniumactions.getInnerText();
+        return await this.seleniumactions.getInnerText(this.locatorTranslatedText);
     }
 }
 
