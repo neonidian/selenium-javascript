@@ -5,7 +5,7 @@ class Homepage {
         this.seleniumactions = new Seleniumactions(driver);
     }
 
-    async loadGoogleTranslateSwedishToEnglishPageUrl() {
+    async loadGoogleTranslateSwedishToEnglishPage() {
         const url = 'https://translate.google.com/#view=home&op=translate&sl=sv&tl=en';
 
         await this.seleniumactions.loadUrl(url);

@@ -9,7 +9,7 @@ describe('Google Translate', function () {
         let homepage = new Homepage(driver);
 
         try {
-            await homepage.loadGoogleTranslateSwedishToEnglishPageUrl();
+            await homepage.loadGoogleTranslateSwedishToEnglishPage();
             await homepage.enterTextToTranslateAndPressEnterKey('Varsågod');
 
             let prom = await homepage.getTranslatedText();
