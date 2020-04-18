@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Selenium using Javascript",
   "scripts": {
-    "test": "mocha --timeout 20000"
+    "test": "mocha --timeout 25000"
   },
   "devDependencies": {
     "chai": "^4.2.0",
