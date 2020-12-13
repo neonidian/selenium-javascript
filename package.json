@@ -7,10 +7,10 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "chromedriver": "^81.0.0",
-    "geckodriver": "^1.19.1",
-    "mocha": "^7.1.1",
-    "selenium-webdriver": "^4.0.0-alpha.7",
+    "chromedriver": "^87.0.4",
+    "geckodriver": "1.21.1",
+    "mocha": "^8.2.1",
+    "selenium-webdriver": "^4.0.0-alpha.8",
     "test": "^0.6.0"
   },
   "author": "Keerthi Shankar Subramanian"
