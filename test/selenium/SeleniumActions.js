@@ -10,15 +10,17 @@ class SeleniumActions {
     }
 
     async enterTextAndPressEnterKey(locator, text) {
-        await this.driver.findElement(locator).sendKeys(text, Key.RETURN).catch(error =>  { throw(error) });
+        await this.driver.wait(until.elementLocated(locator), 8000)
+            .sendKeys(text)
+            .catch(error =>  { throw(error) });
     }
 
     async waitUntilPageTitleIsDisplayed(webPageTitle) {
-        await this.driver.wait(until.titleIs(webPageTitle), 2000).catch(error =>  { throw(error) });
+        await this.driver.wait(until.titleIs(webPageTitle), 4000).catch(error =>  { throw(error) });
     }
 
     async getInnerText(locator) {
-        return await this.driver.wait(until.elementLocated(locator), 2000).getText()
+        return await this.driver.wait(until.elementLocated(locator), 4000).getText()
             .catch(error => { throw(error) });
     }
 }

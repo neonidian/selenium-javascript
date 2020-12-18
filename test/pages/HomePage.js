@@ -4,8 +4,8 @@ const seleniumActions = require('../selenium/SeleniumActions');
 
 class HomePage {
 
-    locatorSourceTextToTranslate = By.id('source');
-    locatorTranslatedText = By.css('.translation span');
+    locatorSourceTextToTranslate = By.css('textarea');
+    locatorTranslatedText = By.css('div[data-language="en"] span');
 
     constructor(driver) {
         this.seleniumactions = new seleniumActions(driver);
